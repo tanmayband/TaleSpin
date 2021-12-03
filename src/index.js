@@ -1,14 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.css';
 import App from './App';
-import Tabletest from './js/tabletest';
+import RouterMain from './js/routerMain';
+
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Tabletest />
+    <RouterMain />
   </React.StrictMode>,
   document.getElementById('root')
 );

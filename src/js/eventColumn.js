@@ -10,7 +10,7 @@ function EventColumn(props)
             <SingleAccordion accTitle={props.eventName} accDesc={props.eventDesc}/>
             <Container>
                 <Row>
-                    {props.characters.map(character => <CharacterCard width={6} characterName={character.name} characterAttributes={character.attributes}/>)}
+                    {props.characters.map((character,i) => <CharacterCard key={i} width={6} characterName={character.name} characterAttributes={character.attributes}/>)}
                 </Row>
             </Container>
         </Col>

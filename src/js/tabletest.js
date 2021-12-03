@@ -1,15 +1,17 @@
 import { Container, Row, Col } from "react-bootstrap";
+
 import '../css/tabletest.css'
 import CharacterCard from './characterCard'
 import EventColumn from "./eventColumn";
 
-function Tabletest() {
+function Tabletest(props) {
+	let data = tableData[props.timeline];
 	return (
 		<div>
 			<Container fluid className="horizontal-scrollable">
 				{/* Stack the columns on mobile by making one full-width and the other half-width */}
 				<Row>
-					{testData.map(eventData => <EventColumn eventName={eventData.eventName} eventDesc={eventData.eventDesc} characters={eventData.characters}/>)}
+					{data.map((eventData, i) => <EventColumn key={i} eventName={eventData.eventName} eventDesc={eventData.eventDesc} characters={eventData.characters}/>)}
 				</Row>
 			</Container>
 		</div>
@@ -290,3 +292,56 @@ let testData = [
 		]
 	}
 ]
+
+let todoData = [
+	{
+		"eventName": "Next",
+		"eventDesc": "Coming up next",
+		"place": "Kingdom Square",
+		"time": "Afternoon",
+		"characters": [
+			{
+				"name": "Functionaity",
+				"desc": "The workings",
+				"attributes": [
+					{
+						"name": "Mongo Connection R",
+						"desc": "Connect to mongo and read from there",
+						"type": "fact"
+					},
+					{
+						"name": "Mongo Connection W",
+						"desc": "Write to mongo",
+						"type": "fact"
+					},
+					{
+						"name": "Hidden vs Deleted attrs",
+						"desc": "Put them in corresponding fields",
+						"type": "fact"
+					}
+				]
+			},
+			{
+				"name": "Visuals",
+				"desc": "The looks",
+				"attributes": [
+					{
+						"name": "Colour attributes",
+						"desc": "According to type: fact, like etc",
+						"type": "fact"
+					},
+					{
+						"name": "Hidden vs Deleted attrs",
+						"desc": "Strikethrough vs removed",
+						"type": "fact"
+					}
+				]
+			}
+		]
+	}
+]
+
+let tableData = {
+	"timeline0": testData,
+	"todo": todoData
+}
