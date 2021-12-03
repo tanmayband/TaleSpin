@@ -1,0 +1,23 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #222222;
+}
+          
+.horizontal-scrollable > .row {
+    flex-wrap: nowrap;
+}
+
+.event-column
+{
+    margin: 10px;
+    padding: 10px;
+    background-color: #181818;
+    color: white;
+    border-radius: 5px;
+}
+
+.single-accordion, .single-accordion > .accordion-button
+{
+    background-color: #181818;
+    color: white;
+}

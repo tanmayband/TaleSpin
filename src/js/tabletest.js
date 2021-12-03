@@ -1,0 +1,292 @@
+import { Container, Row, Col } from "react-bootstrap";
+import '../css/tabletest.css'
+import CharacterCard from './characterCard'
+import EventColumn from "./eventColumn";
+
+function Tabletest() {
+	return (
+		<div>
+			<Container fluid className="horizontal-scrollable">
+				{/* Stack the columns on mobile by making one full-width and the other half-width */}
+				<Row>
+					{testData.map(eventData => <EventColumn eventName={eventData.eventName} eventDesc={eventData.eventDesc} characters={eventData.characters}/>)}
+				</Row>
+			</Container>
+		</div>
+	);
+}
+
+export default Tabletest;
+
+let testData = [
+	{
+		"eventName": "A Normal Day",
+		"eventDesc": "Really, an exceedingly normal day",
+		"place": "Kingdom Square",
+		"time": "Afternoon",
+		"characters": [
+			{
+				"name": "Me",
+				"desc": "The main protagonist, it me",
+				"attributes": [
+					{
+						"name": "College kid",
+						"desc": "Tronix engg, stays at hostel, low on money",
+						"type": "fact"
+					},
+					{
+						"name": "Freelancer",
+						"desc": "Earns a little money on the side, building circuits",
+						"type": "fact"
+					},
+					{
+						"name": "Foster parents",
+						"desc": "Indifferent towards them",
+						"type": "dislike"
+					},
+					{
+						"name": "Concept of music",
+						"desc": "Deems it unnecessary; a distraction",
+						"type": "dislike"
+					},
+					{
+						"name": "Find birth parents",
+						"desc": "Closure from foster parents",
+						"type": "goal"
+					},
+					{
+						"name": "What if never found?",
+						"desc": "Life's goal wasted",
+						"type": "fear"
+					},
+					{
+						"name": "Money: Sister",
+						"desc": "Sent by sister this month",
+						"type": "item"
+					}
+				]
+			},
+			{
+				"name": "Sister",
+				"desc": "The main protagonist's sister'",
+				"attributes": [
+					{
+						"name": "Musician",
+						"desc": "Decent, mostly instruments",
+						"type": "fact"
+					},
+					{
+						"name": "Living separately",
+						"desc": "Small apartment with stuio",
+						"type": "fact"
+					},
+					{
+						"name": "Birth parents",
+						"desc": "Loves them",
+						"type": "like"
+					},
+					{
+						"name": "Concept of music",
+						"desc": "Deems it unnecessary; a distraction",
+						"type": "like"
+					},
+					{
+						"name": "Support my graduation",
+						"desc": "Main goal",
+						"type": "goal"
+					},
+					{
+						"name": "What if never found?",
+						"desc": "Life's goal wasted",
+						"type": "fear"
+					},
+					{
+						"name": "Money: Sister",
+						"desc": "Sent by sister this month",
+						"type": "item"
+					}
+				]
+			}
+		]
+	},
+	{
+		"eventName": "A Different Day",
+		"eventDesc": "Really, an exceedingly normal day",
+		"place": "Kingdom Square",
+		"time": "Afternoon",
+		"characters": [
+			{
+				"name": "Me",
+				"desc": "The main protagonist, it me",
+				"attributes": [
+					{
+						"name": "College kid",
+						"desc": "Tronix engg, stays at hostel, low on money",
+						"type": "fact"
+					},
+					{
+						"name": "Freelancer",
+						"desc": "Earns a little money on the side, building circuits",
+						"type": "fact"
+					},
+					{
+						"name": "Foster parents",
+						"desc": "Indifferent towards them",
+						"type": "dislike"
+					},
+					{
+						"name": "Concept of music",
+						"desc": "Deems it unnecessary; a distraction",
+						"type": "dislike"
+					},
+					{
+						"name": "Find birth parents",
+						"desc": "Closure from foster parents",
+						"type": "goal"
+					},
+					{
+						"name": "What if never found?",
+						"desc": "Life's goal wasted",
+						"type": "fear"
+					},
+					{
+						"name": "Money: Sister",
+						"desc": "Sent by sister this month",
+						"type": "item"
+					}
+				]
+			},
+			{
+				"name": "Sister",
+				"desc": "The main protagonist's sister'",
+				"attributes": [
+					{
+						"name": "Musician",
+						"desc": "Decent, mostly instruments",
+						"type": "fact"
+					},
+					{
+						"name": "Living separately",
+						"desc": "Small apartment with stuio",
+						"type": "fact"
+					},
+					{
+						"name": "Birth parents",
+						"desc": "Loves them",
+						"type": "like"
+					},
+					{
+						"name": "Concept of music",
+						"desc": "Deems it unnecessary; a distraction",
+						"type": "like"
+					},
+					{
+						"name": "Support my graduation",
+						"desc": "Main goal",
+						"type": "goal"
+					},
+					{
+						"name": "What if never found?",
+						"desc": "Life's goal wasted",
+						"type": "fear"
+					},
+					{
+						"name": "Money: Sister",
+						"desc": "Sent by sister this month",
+						"type": "item"
+					}
+				]
+			}
+		]
+	},
+	{
+		"eventName": "The Best Day",
+		"eventDesc": "Really, an exceedingly normal day",
+		"place": "Kingdom Square",
+		"time": "Afternoon",
+		"characters": [
+			{
+				"name": "Me",
+				"desc": "The main protagonist, it me",
+				"attributes": [
+					{
+						"name": "College kid",
+						"desc": "Tronix engg, stays at hostel, low on money",
+						"type": "fact"
+					},
+					{
+						"name": "Freelancer",
+						"desc": "Earns a little money on the side, building circuits",
+						"type": "fact"
+					},
+					{
+						"name": "Foster parents",
+						"desc": "Indifferent towards them",
+						"type": "dislike"
+					},
+					{
+						"name": "Concept of music",
+						"desc": "Deems it unnecessary; a distraction",
+						"type": "dislike"
+					},
+					{
+						"name": "Find birth parents",
+						"desc": "Closure from foster parents",
+						"type": "goal"
+					},
+					{
+						"name": "What if never found?",
+						"desc": "Life's goal wasted",
+						"type": "fear"
+					},
+					{
+						"name": "Money: Sister",
+						"desc": "Sent by sister this month",
+						"type": "item"
+					}
+				]
+			},
+			{
+				"name": "Sister",
+				"desc": "The main protagonist's sister'",
+				"attributes": [
+					{
+						"name": "Musician",
+						"desc": "Decent, mostly instruments",
+						"type": "fact"
+					},
+					{
+						"name": "Living separately",
+						"desc": "Small apartment with stuio",
+						"type": "fact"
+					},
+					{
+						"name": "Birth parents",
+						"desc": "Loves them",
+						"type": "like"
+					},
+					{
+						"name": "Concept of music",
+						"desc": "Deems it unnecessary; a distraction",
+						"type": "like"
+					},
+					{
+						"name": "Support my graduation",
+						"desc": "Main goal",
+						"type": "goal"
+					},
+					{
+						"name": "What if never found?",
+						"desc": "Life's goal wasted",
+						"type": "fear"
+					},
+					{
+						"name": "Money: Sister",
+						"desc": "Sent by sister this month",
+						"type": "item"
+					}
+				]
+			}
+		]
+	}
+]
