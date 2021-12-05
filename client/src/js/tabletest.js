@@ -19,7 +19,7 @@ class Tabletest extends React.Component
 	componentDidMount()
 	{
 		axios
-		.get("http://localhost:3001/timeline/MainStory")
+		.get(`http://localhost:3001/timeline/${this.props.timeline}`)
 		.then(resp => {
 			Utils.printLog(resp.data);
 			this.setState({timelineData: resp.data.timeline});
@@ -72,44 +72,18 @@ let testData = [
 
 let todoData = [
 	{
-		"eventName": "Next",
-		"eventDesc": "Coming up next",
+		"eventName": "Bleh",
+		"eventDesc": "Coming up bleh",
 		"place": "Kingdom Square",
 		"time": "Afternoon",
 		"characters": [
 			{
-				"name": "Functionaity",
-				"desc": "The workings",
+				"name": "Funcs",
+				"desc": "It's funcy",
 				"attributes": [
 					{
-						"name": "Mongo Connection R",
-						"desc": "Connect to mongo and read from there",
-						"type": "fact"
-					},
-					{
-						"name": "Mongo Connection W",
-						"desc": "Write to mongo",
-						"type": "fact"
-					},
-					{
-						"name": "Hidden vs Deleted attrs",
-						"desc": "Put them in corresponding fields",
-						"type": "fact"
-					}
-				]
-			},
-			{
-				"name": "Visuals",
-				"desc": "The looks",
-				"attributes": [
-					{
-						"name": "Colour attributes",
-						"desc": "According to type: fact, like etc",
-						"type": "fact"
-					},
-					{
-						"name": "Hidden vs Deleted attrs",
-						"desc": "Strikethrough vs removed",
+						"name": "Something",
+						"desc": "Do something",
 						"type": "fact"
 					}
 				]
@@ -119,6 +93,6 @@ let todoData = [
 ]
 
 let tableData = {
-	"timeline0": testData,
-	"todo": todoData
+	"MainStory": testData,
+	"ToDo": todoData
 }
