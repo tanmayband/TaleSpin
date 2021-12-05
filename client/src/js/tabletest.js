@@ -1,21 +1,44 @@
-import { Container, Row, Col } from "react-bootstrap";
+import React from "react";
+import { Container, Row } from "react-bootstrap";
+import axios from "axios";
 
 import '../css/tabletest.css'
-import CharacterCard from './characterCard'
 import EventColumn from "./eventColumn";
+import * as Utils from './utils';
 
-function Tabletest(props) {
-	let data = tableData[props.timeline];
-	return (
-		<div>
-			<Container fluid className="horizontal-scrollable">
-				{/* Stack the columns on mobile by making one full-width and the other half-width */}
-				<Row>
-					{data.map((eventData, i) => <EventColumn key={i} eventName={eventData.eventName} eventDesc={eventData.eventDesc} characters={eventData.characters}/>)}
-				</Row>
-			</Container>
-		</div>
-	);
+class Tabletest extends React.Component
+{
+	constructor(props) {
+		super(props);
+	}
+
+	componentDidMount()
+	{
+		axios
+		.get("http://localhost:3001/timeline/MainStory")
+		.then(resp => {
+			Utils.printLog(resp.data);
+		})
+		.catch(error => {
+			Utils.printLog(error);
+		});
+	}
+
+	render()
+	{
+		let data = tableData[this.props.timeline];
+		return (
+			<div>
+				<Container fluid className="horizontal-scrollable">
+					{/* Stack the columns on mobile by making one full-width and the other half-width */}
+					<Row>
+						{data.map((eventData, i) => <EventColumn key={i} eventName={eventData.eventName} eventDesc={eventData.eventDesc} characters={eventData.characters}/>)}
+					</Row>
+				</Container>
+			</div>
+		);
+	}
+
 }
 
 export default Tabletest;

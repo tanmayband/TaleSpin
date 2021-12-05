@@ -1,4 +1,4 @@
-import { Accordion, Card, Col } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import SingleAccordion from './singleAccordion';
 import '../css/tabletest.css'
 

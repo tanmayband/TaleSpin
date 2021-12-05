@@ -1,4 +1,4 @@
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import SingleAccordion from "./singleAccordion";
 import CharacterCard from "./characterCard";
 import '../css/tabletest.css'
