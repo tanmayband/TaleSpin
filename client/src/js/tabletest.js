@@ -10,6 +10,10 @@ class Tabletest extends React.Component
 {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			timelineData: []
+		}
 	}
 
 	componentDidMount()
@@ -18,6 +22,7 @@ class Tabletest extends React.Component
 		.get("http://localhost:3001/timeline/MainStory")
 		.then(resp => {
 			Utils.printLog(resp.data);
+			this.setState({timelineData: resp.data.timeline});
 		})
 		.catch(error => {
 			Utils.printLog(error);
@@ -26,7 +31,7 @@ class Tabletest extends React.Component
 
 	render()
 	{
-		let data = tableData[this.props.timeline];
+		let data = this.state.timelineData.length ? this.state.timelineData : tableData[this.props.timeline];
 		return (
 			<div>
 				<Container fluid className="horizontal-scrollable">
@@ -45,270 +50,19 @@ export default Tabletest;
 
 let testData = [
 	{
-		"eventName": "A Normal Day",
-		"eventDesc": "Really, an exceedingly normal day",
+		"eventName": "A Some Day",
+		"eventDesc": "Really, an exceedingly some day",
 		"place": "Kingdom Square",
 		"time": "Afternoon",
 		"characters": [
 			{
-				"name": "Me",
+				"name": "Random char",
 				"desc": "The main protagonist, it me",
 				"attributes": [
 					{
-						"name": "College kid",
-						"desc": "Tronix engg, stays at hostel, low on money",
+						"name": "Some attr",
+						"desc": "Some desc",
 						"type": "fact"
-					},
-					{
-						"name": "Freelancer",
-						"desc": "Earns a little money on the side, building circuits",
-						"type": "fact"
-					},
-					{
-						"name": "Foster parents",
-						"desc": "Indifferent towards them",
-						"type": "dislike"
-					},
-					{
-						"name": "Concept of music",
-						"desc": "Deems it unnecessary; a distraction",
-						"type": "dislike"
-					},
-					{
-						"name": "Find birth parents",
-						"desc": "Closure from foster parents",
-						"type": "goal"
-					},
-					{
-						"name": "What if never found?",
-						"desc": "Life's goal wasted",
-						"type": "fear"
-					},
-					{
-						"name": "Money: Sister",
-						"desc": "Sent by sister this month",
-						"type": "item"
-					}
-				]
-			},
-			{
-				"name": "Sister",
-				"desc": "The main protagonist's sister'",
-				"attributes": [
-					{
-						"name": "Musician",
-						"desc": "Decent, mostly instruments",
-						"type": "fact"
-					},
-					{
-						"name": "Living separately",
-						"desc": "Small apartment with stuio",
-						"type": "fact"
-					},
-					{
-						"name": "Birth parents",
-						"desc": "Loves them",
-						"type": "like"
-					},
-					{
-						"name": "Concept of music",
-						"desc": "Deems it unnecessary; a distraction",
-						"type": "like"
-					},
-					{
-						"name": "Support my graduation",
-						"desc": "Main goal",
-						"type": "goal"
-					},
-					{
-						"name": "What if never found?",
-						"desc": "Life's goal wasted",
-						"type": "fear"
-					},
-					{
-						"name": "Money: Sister",
-						"desc": "Sent by sister this month",
-						"type": "item"
-					}
-				]
-			}
-		]
-	},
-	{
-		"eventName": "A Different Day",
-		"eventDesc": "Really, an exceedingly normal day",
-		"place": "Kingdom Square",
-		"time": "Afternoon",
-		"characters": [
-			{
-				"name": "Me",
-				"desc": "The main protagonist, it me",
-				"attributes": [
-					{
-						"name": "College kid",
-						"desc": "Tronix engg, stays at hostel, low on money",
-						"type": "fact"
-					},
-					{
-						"name": "Freelancer",
-						"desc": "Earns a little money on the side, building circuits",
-						"type": "fact"
-					},
-					{
-						"name": "Foster parents",
-						"desc": "Indifferent towards them",
-						"type": "dislike"
-					},
-					{
-						"name": "Concept of music",
-						"desc": "Deems it unnecessary; a distraction",
-						"type": "dislike"
-					},
-					{
-						"name": "Find birth parents",
-						"desc": "Closure from foster parents",
-						"type": "goal"
-					},
-					{
-						"name": "What if never found?",
-						"desc": "Life's goal wasted",
-						"type": "fear"
-					},
-					{
-						"name": "Money: Sister",
-						"desc": "Sent by sister this month",
-						"type": "item"
-					}
-				]
-			},
-			{
-				"name": "Sister",
-				"desc": "The main protagonist's sister'",
-				"attributes": [
-					{
-						"name": "Musician",
-						"desc": "Decent, mostly instruments",
-						"type": "fact"
-					},
-					{
-						"name": "Living separately",
-						"desc": "Small apartment with stuio",
-						"type": "fact"
-					},
-					{
-						"name": "Birth parents",
-						"desc": "Loves them",
-						"type": "like"
-					},
-					{
-						"name": "Concept of music",
-						"desc": "Deems it unnecessary; a distraction",
-						"type": "like"
-					},
-					{
-						"name": "Support my graduation",
-						"desc": "Main goal",
-						"type": "goal"
-					},
-					{
-						"name": "What if never found?",
-						"desc": "Life's goal wasted",
-						"type": "fear"
-					},
-					{
-						"name": "Money: Sister",
-						"desc": "Sent by sister this month",
-						"type": "item"
-					}
-				]
-			}
-		]
-	},
-	{
-		"eventName": "The Best Day",
-		"eventDesc": "Really, an exceedingly normal day",
-		"place": "Kingdom Square",
-		"time": "Afternoon",
-		"characters": [
-			{
-				"name": "Me",
-				"desc": "The main protagonist, it me",
-				"attributes": [
-					{
-						"name": "College kid",
-						"desc": "Tronix engg, stays at hostel, low on money",
-						"type": "fact"
-					},
-					{
-						"name": "Freelancer",
-						"desc": "Earns a little money on the side, building circuits",
-						"type": "fact"
-					},
-					{
-						"name": "Foster parents",
-						"desc": "Indifferent towards them",
-						"type": "dislike"
-					},
-					{
-						"name": "Concept of music",
-						"desc": "Deems it unnecessary; a distraction",
-						"type": "dislike"
-					},
-					{
-						"name": "Find birth parents",
-						"desc": "Closure from foster parents",
-						"type": "goal"
-					},
-					{
-						"name": "What if never found?",
-						"desc": "Life's goal wasted",
-						"type": "fear"
-					},
-					{
-						"name": "Money: Sister",
-						"desc": "Sent by sister this month",
-						"type": "item"
-					}
-				]
-			},
-			{
-				"name": "Sister",
-				"desc": "The main protagonist's sister'",
-				"attributes": [
-					{
-						"name": "Musician",
-						"desc": "Decent, mostly instruments",
-						"type": "fact"
-					},
-					{
-						"name": "Living separately",
-						"desc": "Small apartment with stuio",
-						"type": "fact"
-					},
-					{
-						"name": "Birth parents",
-						"desc": "Loves them",
-						"type": "like"
-					},
-					{
-						"name": "Concept of music",
-						"desc": "Deems it unnecessary; a distraction",
-						"type": "like"
-					},
-					{
-						"name": "Support my graduation",
-						"desc": "Main goal",
-						"type": "goal"
-					},
-					{
-						"name": "What if never found?",
-						"desc": "Life's goal wasted",
-						"type": "fear"
-					},
-					{
-						"name": "Money: Sister",
-						"desc": "Sent by sister this month",
-						"type": "item"
 					}
 				]
 			}
