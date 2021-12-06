@@ -6,11 +6,11 @@ function CharacterCard(props)
 {
     return (
         <Col md={props.width}>
-            <Card className="single-accordion">
+            <Card className="character-card">
                 <Card.Body>
                     <Card.Title>{props.characterName}</Card.Title>
 
-                    {props.characterAttributes.map((attribute, i) => <SingleAccordion key={i} accTitle={attribute.name}accDesc={attribute.desc}/>)}
+                    {props.characterAttributes.map((attribute, i) => <SingleAccordion key={i} accTitle={attribute.name} accDesc={attribute.desc} accHidden={attribute.hidden}/>)}
                 </Card.Body>
             </Card>
         </Col>

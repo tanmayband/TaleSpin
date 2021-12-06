@@ -292,7 +292,8 @@
                         {
                             "name": "Mongo Connection R",
                             "desc": "Connect to mongo and read from there",
-                            "type": "fact"
+                            "type": "fact",
+                            "hidden": true
                         },
                         {
                             "name": "Mongo Connection W",
@@ -316,9 +317,10 @@
                             "type": "fact"
                         },
                         {
-                            "name": "Hidden vs Deleted attrs",
-                            "desc": "Strikethrough vs removed",
-                            "type": "fact"
+                            "name": "Hidden attrs",
+                            "desc": "Strikethrough",
+                            "type": "fact",
+                            "hidden": true
                         }
                     ]
                 }

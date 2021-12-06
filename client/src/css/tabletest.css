@@ -16,8 +16,41 @@ body {
     border-radius: 5px;
 }
 
-.single-accordion, .single-accordion > .accordion-button
+.character-card
 {
     background-color: #181818;
     color: white;
+}
+
+.single-accordion
+{
+    color: white;
+}
+
+.accordion-button:focus
+{
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.accordion-visible
+{
+    background-color: #181818;
+}
+.accordion-visible > .accordion-header > .accordion-button
+{
+    background-color: #181818;
+    color: white;
+}
+
+.accordion-hidden
+{
+    text-decoration: line-through;
+    background-color: #424242;
+    color: #7b7b7b;
+}
+.accordion-hidden > .accordion-header > .accordion-button
+{
+    background-color: #424242;
+    color: #7b7b7b;
 }
