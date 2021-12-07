@@ -6,7 +6,7 @@ import '../css/tabletest.css'
 function EventColumn(props)
 {
 	return (
-        <Col md={6}>
+        <Col md={6} className="event-column">
             <SingleAccordion accTitle={props.eventName} accDesc={props.eventDesc}/>
             <Container>
                 <Row>
