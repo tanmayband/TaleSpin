@@ -7,6 +7,18 @@ body {
     flex-wrap: nowrap;
 }
 
+.row
+{
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+.container, .row > *
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .event-column
 {
     margin: 10px;
@@ -25,6 +37,12 @@ body {
 .single-accordion
 {
     color: white;
+}
+
+.accordion-button
+{
+    padding: 10px;
+    height: 40px;
 }
 
 .accordion-button:focus
@@ -53,4 +71,28 @@ body {
 {
     background-color: #424242;
     color: #7b7b7b;
+}
+
+.accordion-button::after
+{
+    display: none;
+}
+
+.accordion-icon-button
+{
+    
+}
+
+.position-left
+{
+    position: relative;
+    left: 0px;
+    margin-right: 10px;
+}
+
+.position-right
+{
+    position: absolute;
+    right: 0px;
+    margin-left: 10px;
 }
