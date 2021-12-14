@@ -12,3 +12,22 @@ export function getTimeline(timelineId, callback)
 			Utils.printLog(error);
 		});
 }
+
+export function toggleAttribute(indices, hide, callback)
+{
+    console.log(indices);
+    let timelineId = indices[0];
+    indices.splice(0,1);
+    axios
+        .post(`http://localhost:3001/toggle`, {
+            timelineId: timelineId,
+            indices: indices,
+            hide: hide
+        })
+        .then(resp => {
+            callback(resp);
+		})
+		.catch(error => {
+			Utils.printLog(error);
+		});;
+}

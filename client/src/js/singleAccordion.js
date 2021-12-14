@@ -4,10 +4,7 @@ import { BsTrash, BsXLg } from "react-icons/bs";
 
 import '../css/tabletest.css'
 
-function hideAccordion()
-{
-    console.log("hidden!");
-}
+import { toggleAttribute } from './dbComms';
 
 function AccordionIconButton({ children, onClick })
 {
@@ -17,6 +14,7 @@ function AccordionIconButton({ children, onClick })
         </div>
     );
 }
+
 
 function CustomToggle({ children, eventKey })
 {
@@ -39,6 +37,8 @@ class SingleAccordion extends React.Component
             accDesc: "",
 			accHidden: false
 		}
+
+        this.indices = [];
 	}
 
     componentDidMount()
@@ -48,8 +48,18 @@ class SingleAccordion extends React.Component
             accDesc: this.props.accDesc,
             accHidden: this.props.accHidden
         });
+
+        this.indices = this.props.indexPath;
     }
 
+    hideAccordion = () =>
+    {   
+        let show = !this.state.accHidden;
+        console.log(`accHidden: ${show}!`);
+        toggleAttribute(this.indices, show, resp => {
+            this.setState({accHidden: show});
+        });
+    }
 
     render()
     {
@@ -61,7 +71,7 @@ class SingleAccordion extends React.Component
                         <Container>
                             <Row>
                                 <Col xs="1">
-                                    <AccordionIconButton onClick={hideAccordion}>
+                                    <AccordionIconButton onClick={this.hideAccordion}>
                                         <BsXLg className="accordion-icon-button"/>
                                     </AccordionIconButton>
                                 </Col>

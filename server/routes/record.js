@@ -13,8 +13,8 @@ recordRoutes.route('/timeline/:timelineId').get(function(req, res)
         .findOne(timelineQuery, function(err, result)
         {
             if(err) throw err;
-            Utils.printLog(`Request processed for ${req.params.timelineId}`);
-            Utils.printLog(result);
+            // Utils.printLog(`Request processed for ${req.params.timelineId}`);
+            // Utils.printLog(result);
             res.json(result);
         });
 });
@@ -30,6 +30,36 @@ recordRoutes.route('/').get(function(req, res)
     res.json("Hello");
 });
 
-recordRoutes.route('/toggle').post(function(req, resp) {
-   console.log(req); 
+recordRoutes.route('/toggle').post(function(req, res) {
+    console.log("in toggle");
+    let timelineId = req.body.timelineId;
+    let attrIndices = req.body.indices;
+    let hide = req.body.hide;
+
+    let setString = "timeline";
+    attrIndices.forEach((idx, i) => {
+        setString += `.${idx}`;
+        if(i < attrIndices.length - 1)
+            setString += `.${INDEX_LEVELS[i]}`;
+    });
+    setString += ".hidden";
+    console.log(setString);
+
+    let setObj = {};
+    setObj[setString] = hide;
+
+    DBConn.getDb()
+        .collection("timeline")
+        .updateOne(
+            {"timelineId": timelineId},
+            {"$set": setObj},
+            function(err, result)
+            {
+                if(err) throw err;
+                // Utils.printLog(result);
+                res.json(result);
+            }
+        )
 });
+
+const INDEX_LEVELS = ["characters", "attributes"];

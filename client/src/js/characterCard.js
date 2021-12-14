@@ -10,7 +10,7 @@ function CharacterCard(props)
                 <Card.Body>
                     <Card.Title>{props.characterName}</Card.Title>
 
-                    {props.characterAttributes.map((attribute, i) => <SingleAccordion key={i} accTitle={attribute.name} accDesc={attribute.desc} accHidden={attribute.hidden}/>)}
+                    {props.characterAttributes.map((attribute, i) => <SingleAccordion key={i} accTitle={attribute.name} accDesc={attribute.desc} accHidden={attribute.hidden} indexPath={[...props.indexPath, i]}/>)}
                 </Card.Body>
             </Card>
         </Col>

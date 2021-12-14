@@ -297,13 +297,20 @@
                             "attrId": 10000
                         },
                         {
-                            "name": "Mongo Connection W",
-                            "desc": "Write to mongo",
+                            "name": "Hidden attrs",
+                            "desc": "Put them in corresponding fields",
                             "type": "fact",
-                            "attrId": 20000
+                            "attrId": 30000,
+                            "hidden": true
                         },
                         {
-                            "name": "Hidden vs Deleted attrs",
+                            "name": "Add attrs",
+                            "desc": "Add new attr",
+                            "type": "fact",
+                            "attrId": 30000
+                        },
+                        {
+                            "name": "Deleted attrs",
                             "desc": "Put them in corresponding fields",
                             "type": "fact",
                             "attrId": 30000
