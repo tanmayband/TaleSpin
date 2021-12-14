@@ -29,3 +29,7 @@ recordRoutes.route('/').get(function(req, res)
     Utils.printLog(`Base request received`);
     res.json("Hello");
 });
+
+recordRoutes.route('/toggle').post(function(req, resp) {
+   console.log(req); 
+});

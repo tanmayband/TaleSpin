@@ -293,17 +293,26 @@
                             "name": "Mongo Connection R",
                             "desc": "Connect to mongo and read from there",
                             "type": "fact",
-                            "hidden": true
+                            "hidden": true,
+                            "attrId": 10000
                         },
                         {
                             "name": "Mongo Connection W",
                             "desc": "Write to mongo",
-                            "type": "fact"
+                            "type": "fact",
+                            "attrId": 20000
                         },
                         {
                             "name": "Hidden vs Deleted attrs",
                             "desc": "Put them in corresponding fields",
-                            "type": "fact"
+                            "type": "fact",
+                            "attrId": 30000
+                        },
+                        {
+                            "name": "Local vs global attrs",
+                            "desc": "Local attrs exist in-document, global attrs just ids",
+                            "type": "fact",
+                            "attrId": 30000
                         }
                     ]
                 },
@@ -314,13 +323,15 @@
                         {
                             "name": "Colour attributes",
                             "desc": "According to type: fact, like etc",
-                            "type": "fact"
+                            "type": "fact",
+                            "attrId": 40000
                         },
                         {
                             "name": "Hidden attrs",
                             "desc": "Strikethrough",
                             "type": "fact",
-                            "hidden": true
+                            "hidden": true,
+                            "attrId": 50000
                         }
                     ]
                 }

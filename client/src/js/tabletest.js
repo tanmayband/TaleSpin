@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-import axios from "axios";
 
 import '../css/tabletest.css'
 import EventColumn from "./eventColumn";
 import * as Utils from './utils';
+import { getTimeline } from './dbComms';
 
 class Tabletest extends React.Component
 {
@@ -18,14 +18,8 @@ class Tabletest extends React.Component
 
 	componentDidMount()
 	{
-		axios
-		.get(`http://localhost:3001/timeline/${this.props.timeline}`)
-		.then(resp => {
-			Utils.printLog(resp.data);
+		getTimeline(this.props.timeline, resp => {
 			this.setState({timelineData: resp.data.timeline});
-		})
-		.catch(error => {
-			Utils.printLog(error);
 		});
 	}
 
@@ -71,6 +65,7 @@ let testData = [
 ]
 
 let todoData = [
+	/*
 	{
 		"eventName": "Bleh",
 		"eventDesc": "Coming up bleh",
@@ -90,6 +85,7 @@ let todoData = [
 			}
 		]
 	}
+	*/
 ]
 
 let tableData = {

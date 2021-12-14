@@ -47,11 +47,7 @@ body {
     border-color: transparent;
 }
 
-.accordion-visible
-{
-    background-color: #181818;
-}
-.accordion-visible > .accordion-header > .accordion-button
+.accordion-visible > .card
 {
     background-color: #181818;
     color: white;
@@ -59,14 +55,12 @@ body {
 
 .accordion-hidden
 {
-    text-decoration: line-through;
-    background-color: #424242;
     color: #7b7b7b;
+    text-decoration: line-through;
 }
-.accordion-hidden > .accordion-header > .accordion-button
+.accordion-hidden > .card
 {
     background-color: #424242;
-    color: #7b7b7b;
 }
 
 .accordion-button::after
