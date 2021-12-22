@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 
 import Tabletest from './tabletest';
+import Testpad from './testpad';
 
 function RouterMain()
 {
@@ -16,6 +17,7 @@ function RouterMain()
                 <Routes>
                     <Route path="/todo" element={<Tabletest timeline="ToDo"/>}/>
                     <Route path="/" element={<Tabletest timeline="MainStory"/>}/>
+                    <Route path="/testpad" element={<Testpad/>}/>
                 </Routes>
             </div>
         </Router>
