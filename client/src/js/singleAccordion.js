@@ -1,31 +1,11 @@
 import React from "react";
-import { Accordion, Button, Card, Col, Container, Row, useAccordionButton } from "react-bootstrap";
+import { Accordion, Button, Card, Col, Container, Row } from "react-bootstrap";
 import { BsTrash, BsXLg } from "react-icons/bs";
 
 import '../css/tabletest.css'
+import { AccordionIconButton, CustomToggle } from './utilsComponents';
 
 import { toggleAttribute } from './dbComms';
-
-function AccordionIconButton({ children, onClick })
-{
-    return (
-        <div type="button" onClick={onClick}>
-            {children}
-        </div>
-    );
-}
-
-
-function CustomToggle({ children, eventKey })
-{
-    const decoratedOnClick = useAccordionButton(eventKey);
-
-    return (
-        <div type="button" onClick={decoratedOnClick}>
-            {children}
-        </div>
-    );
-}
 
 class SingleAccordion extends React.Component
 {
