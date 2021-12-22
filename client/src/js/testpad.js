@@ -15,6 +15,11 @@ class Testpad extends React.Component
         this.noteTimeline = [0,0.5,1,1.5,2,2.5,3.1,4,4.8,6.1,6.4,7,8.23,9,10,12,12.4,14,14.3];
 	}
 
+    componentDidMount()
+    {
+        this.setState({currentTime: Math.ceil(this.noteTimeline[0]) - this.laneDuration});
+    }
+
     changeTime = (event) =>
     {
         this.setState({currentTime: Number(event.target.value)})
@@ -72,9 +77,9 @@ class Testpad extends React.Component
                    &lt;--------- {this.laneDuration} sec / {laneWidth} px ---------&gt;
                 </div>
                 <>
-                    <Form.Label>{this.state.currentTime}</Form.Label>
+                    <Form.Label>{this.state.currentTime}s</Form.Label>
                     <br/>
-                    <Form.Range min={0} max={Math.ceil(this.noteTimeline[this.noteTimeline.length - 1])} step={0.1} value={this.state.currentTime} onChange={this.changeTime} style={{width: 500}}/>
+                    <Form.Range min={Math.ceil(this.noteTimeline[0]) - this.laneDuration} max={Math.ceil(this.noteTimeline[this.noteTimeline.length - 1])} step={0.1} value={this.state.currentTime} onChange={this.changeTime} style={{width: 500}}/>
                 </>
             </div>
         )
